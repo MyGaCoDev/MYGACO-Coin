@@ -1,5 +1,5 @@
 ### About
-Forknote is innovative way to create Cryptonote (https://cryptonote.org) based cryptotokens. It gives the users the ability to create cryptotokens just by creating a simple configuration file.
+MYGACO is a coin based on Forknote core, a Cryptonote (https://cryptonote.org) based cryptotokens. It gives the users the ability to create cryptotokens just by creating a simple configuration file.
 
 ### Dependencies
 * GCC 4.7.3 or later     (http://gcc.gnu.org/)
@@ -16,44 +16,54 @@ https://github.com/forknote/cryptonote-generator/blob/master/configure.sh
 
 ### Usage
 1. Download or compile the binaries
-2. Create configuration file. The easiest way is to use the form on http://forknote.net
+2. Download the configuration file. The easiest way is to use the following one
 3. Start the daemon:
 ```
-./forknoted --config-file PATH_TO_YOUR_CONFIG
+./migacod --config-file PATH_TO_YOUR_CONFIG
 ```
 
-### Configuration parameters
-Use http://forknote.net to create configuration files.
-
-All fields supported:
+All fields supported only for MYGACO:
 ```
-GENESIS_COINBASE_TX_HEX=     // REQUIRED. Use " ./forknoted --config-file PATH_TO_CONFIG --print-genesis-tx " to generate 
-CRYPTONOTE_NAME=my_coin
-p2p-bind-port=33669
-rpc-bind-port=33670
-seed-node=127.0.0.1:33669    // format:  IP:PORT
-seed-node=127.0.0.2:33669    
-UPGRADE_HEIGHT_V2=1             // REQUIRED. Use 1 for new cryptotokens
-UPGRADE_HEIGHT_V3=2             // REQUIRED. Use 2 for new cryptotokens
+seed-node=165.227.69.240:9173
+seed-node=174.138.14.88:9173
+seed-node=159.65.50.25:9173
+EMISSION_SPEED_FACTOR=21
+DIFFICULTY_TARGET=300
+CRYPTONOTE_DISPLAY_DECIMAL_POINT=8
 MONEY_SUPPLY=18446744073709551615
-EMISSION_SPEED_FACTOR=18
-GENESIS_BLOCK_REWARD=0           // premined coins. Default: 0
-DIFFICULTY_TARGET=120
-CRYPTONOTE_DISPLAY_DECIMAL_POINT=12
+GENESIS_BLOCK_REWARD=184467440737095520
+SYNC_FROM_ZERO=1
 DEFAULT_DUST_THRESHOLD=1000000
 MINIMUM_FEE=1000000
-CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW=10
-CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE=20000
-CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX=120
-BYTECOIN_NETWORK=b2889400-e6f5-b62d-8d37-8fa91779dc7e
-P2P_STAT_TRUSTED_PUB_KEY=4d26c4df7f4ca7037950ad026f9ab36dd05d881952662992f2e4dcfcafbe57eb
-CHECKPOINT=10000:70d2531151529ac00bf875281e15f51324934bc85e5733dcd92e1ccb1a665ff8   // format: HEIGHT:BLOCK_ID
-CHECKPOINT=20000:80d2dd05d8819526629235722e15f5f9ab36dd05d881952662992f2e4dcfcafb
+CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW=4
+CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE=100000
+MAX_TRANSACTION_SIZE_LIMIT=100000
+CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX=92
+DIFFICULTY_CUT_V1=60
+DIFFICULTY_CUT_V2=60
+DIFFICULTY_CUT=0
+DIFFICULTY_LAG_V1=15
+DIFFICULTY_LAG_V2=15
+DIFFICULTY_LAG=0
+DIFFICULTY_WINDOW_V1=288
+DIFFICULTY_WINDOW_V2=288
+DIFFICULTY_WINDOW=17
+p2p-bind-port=9173 // to local wallet
+rpc-bind-port=9174 // to local wallet
 
-// simplewallet parameters
-wallet-rpc-bind-ip=127.0.0.1        // instead rpc-bind-ip
-wallet-rpc-bind-port=33671          // instead rpc-bind-port
-SYNC_FROM_ZERO=1                    // to sync the wallet from block 0. Used for premine coins or brain wallets
+// OR simplewallet parameters
+//wallet-rpc-bind-ip=127.0.0.1        // instead rpc-bind-ip
+//wallet-rpc-bind-port=9174          // instead rpc-bind-port
+
+BYTECOIN_NETWORK=7b715d4d-1d5b-8680-e3bd-62ff51150571
+CRYPTONOTE_NAME=mygaco
+GENESIS_COINBASE_TX_HEX=010401ff0001e09e8aae8f85d7c702026d38ea2829d676b140cadc012899879dc2fb2acae157a525e7a1fc0e8e47b793210135a415cbe267fb96b2832f84e6cc8dd1e2258692ca26c8ca9f1dee31622dd505
+MAX_BLOCK_SIZE_INITIAL=100000
+UPGRADE_HEIGHT_V2=1
+UPGRADE_HEIGHT_V3=30
+CHECKPOINT=5000:e2137cdbdcaa3d8d59eb7c91ac426ddc982556f59f51b24e4a1f49d219c37fc4   // format: HEIGHT:BLOCK_ID
+
+
 ```
 
 ---
